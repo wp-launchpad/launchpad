@@ -1,0 +1,157 @@
+#!/usr/bin/php
+<?php
+
+$configs = [
+    'name' => false,
+    'description' => false,
+    'url' => false,
+    'author' => false,
+    'min_wp' => false,
+    'min_php' => false,
+];
+
+$is_string = function (string $value) {
+  return strlen($value) > 0;
+};
+
+$is_url = function (string $value) {
+    return filter_var($value, FILTER_VALIDATE_URL);
+};
+
+$is_version = function (string $value) {
+    return (bool) preg_match("/^\d+(\.\d+){2}$/", $value);
+};
+
+$configs_questions = [
+    'name' => [
+        'message' => 'Your plugin name',
+        'validator' => $is_string,
+        'required' => true,
+    ],
+    'description' => [
+        'message' => 'The description from your plugin',
+        'validator' => $is_string,
+        'required' => false,
+    ],
+    'url' => [
+        'message' => 'The url from your plugin',
+        'validator' => $is_url,
+        'required' => false,
+    ],
+    'author' => [
+        'message' => 'The author from your plugin',
+        'validator' => $is_string,
+        'required' => false,
+    ],
+    'min_wp' => [
+        'message' => 'The minimum WordPress version from your plugin',
+        'validator' => $is_version,
+        'required' => false,
+    ],
+    'min_php' => [
+        'message' => 'The minimum PHP version from your plugin',
+        'validator' => $is_version,
+        'required' => false,
+    ],
+];
+
+
+function input(string $message, callable $validate, bool $required) {
+    do {
+        $value = readline($message . ($required ? '' : ' (Press enter to skip)') . ":\n");
+    } while (! $validate($value) && ($value === '' && $required));
+
+    if($value === '' && ! $required) {
+        $value = false;
+    }
+
+    return $value;
+}
+
+function init_configs(array $configs, array $questions) {
+    foreach ($configs as $key => $value) {
+        $question = $questions[$key];
+        $configs[$key] = input($question['message'], $question['validator'], $question['required']);
+    }
+    return $configs;
+}
+
+$configs = init_configs($configs, $configs_questions);
+
+function generate_namespace(string $name) {
+    $name = mb_convert_encoding($name, "ASCII", "UTF-8");
+    return preg_replace_callback('/\b\w/', function($match){
+        return strtoupper($match[0]);
+    }, $name);
+}
+
+function generate_wp_key(string $name) {
+    $name = mb_convert_encoding($name, "ASCII", "UTF-8");
+    return strtolower(str_replace(" ", "-", $name));
+}
+
+$configs['namespace'] = generate_namespace($configs['name']);
+$configs['wp_key'] = generate_wp_key($configs['name']);
+
+function replace_namespace_folder(string $folder, string $old_namespace, string $new_namespace) {
+    foreach (glob("$folder/*.php") as $entry) {
+        if (is_dir($entry)) {
+            replace_namespace_folder($entry, $old_namespace, $new_namespace);
+            continue;
+        }
+
+        if(pathinfo($entry, PATHINFO_EXTENSION) !== 'php') {
+            continue;
+        }
+
+        $contents = file_get_contents($entry);
+        $contents = preg_replace("/namespace $old_namespace;/", "namespace $new_namespace;", $contents);
+        $contents = preg_replace("/use $old_namespace\\\\/", "use $new_namespace\\\\", $contents);
+        file_put_contents($entry, $contents);
+    }
+}
+
+function replace_namespace_composer(string $folder, string $old_namespace, string $new_namespace) {
+    $composer_file = $folder . '/composer.json';
+    $composer_contents = file_get_contents($composer_file);
+    $composer_contents = str_replace($old_namespace, $new_namespace, $composer_contents);
+    file_put_contents($composer_file, $composer_contents);
+}
+
+function replace_namespace(string $project_folder, string $old_namespace, string $new_namespace) {
+    replace_namespace_folder($project_folder . '/inc', $old_namespace, $new_namespace);
+    replace_namespace_composer($project_folder, $old_namespace, $new_namespace);
+}
+
+$project_folder = __DIR__ . '/..';
+
+replace_namespace( $project_folder . '/inc', 'PSR2Plugin', $configs['namespace'] );
+
+function generate_plugin_comment(string $folder, string $old_name, array $configs) {
+    $file = $folder . '/' . $old_name;
+
+    $url = $configs['url'] ? "\n * Plugin URI: {$configs['url']}" : '';
+    $description = $configs['description'] ? "\n * Description: {$configs['description']}" : '';
+    $author = $configs['author'] ? "\n * Author: {$configs['author']}" : '';
+    $header = <<<EOT
+/**
+ * Plugin Name: {$configs['name']}{$url}{$description}
+ * Version: 1.0.0{$author}
+ * License: GPL2
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: {$configs['wp_key']}
+ * Domain Path: /languages
+ */
+EOT;
+
+    $content = file_get_contents($file);
+    $pattern = "/(\/\*\*\s+\*\s+Plugin\s+Name:.*\*\/\s+)/s";
+    $new_content = preg_replace($pattern, $header, $content);
+
+    file_put_contents($file, $new_content);
+
+    rename($file, $folder . '/' . $configs['wp_key'] . '.php');
+
+}
+
+generate_plugin_comment($project_folder, 'psr2-plugin', $configs);
