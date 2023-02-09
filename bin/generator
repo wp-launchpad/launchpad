@@ -1,0 +1,7 @@
+#!/usr/bin/php
+<?php
+use PSR2PluginBuilder\AppBuilder;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+AppBuilder::init(__DIR__ . '/../');

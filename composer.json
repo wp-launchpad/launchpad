@@ -27,6 +27,10 @@
     {
       "type": "composer",
       "url": "https://wpackagist.org"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:CrochetFeve0251/psr2-plugin-builder.git"
     }
   ],
   "require": {
@@ -49,7 +53,8 @@
     "roave/security-advisories": "dev-master",
     "szepeviktor/phpstan-wordpress": "^0.7.0",
     "wp-coding-standards/wpcs": "^2",
-    "wp-media/phpunit": "^3.0"
+    "wp-media/phpunit": "^3.0",
+    "crochetfeve0251/psr2-plugin-builder": "dev-main"
   },
   "autoload": {
     "classmap": [
@@ -69,10 +74,10 @@
       "vendor/{$vendor}/{$name}/": ["type:wordpress-plugin"]
     },
     "mozart": {
-      "dep_namespace": "WP_Rocket_Lighthouse_Simulator\\Dependencies\\",
+      "dep_namespace": "PSR2Plugin\\Dependencies\\",
       "dep_directory": "/inc/Dependencies/",
       "classmap_directory": "/inc/classes/dependencies/",
-      "classmap_prefix": "WP_Rocket_Lighthouse_Simulator_",
+      "classmap_prefix": "PSR2Plugin_",
       "packages": [
         "berlindb/core",
         "league/container"
