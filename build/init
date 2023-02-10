@@ -105,7 +105,7 @@ function replace_namespace_folder(string $folder, string $old_namespace, string 
         }
 
         $contents = file_get_contents($entry);
-        $contents = preg_replace("/namespace $old_namespace;/", "namespace $new_namespace;", $contents);
+        $contents = preg_replace("/namespace $old_namespace\\\\/", "namespace $new_namespace\\\\", $contents);
         $contents = preg_replace("/use $old_namespace\\\\/", "use $new_namespace\\\\", $contents);
         file_put_contents($entry, $contents);
     }
@@ -126,6 +126,10 @@ function replace_namespace(string $project_folder, string $old_namespace, string
 $project_folder = __DIR__ . '/..';
 
 replace_namespace( $project_folder . '/inc', 'PSR2Plugin', $configs['namespace'] );
+
+function replace_constants(string $folder, string $old_name, string $new_name) {
+
+}
 
 function generate_plugin_comment(string $folder, string $old_name, array $configs) {
     $file = $folder . '/' . $old_name;
@@ -154,4 +158,4 @@ EOT;
 
 }
 
-generate_plugin_comment($project_folder, 'psr2-plugin', $configs);
+generate_plugin_comment($project_folder, 'psr2-plugin.php', $configs);
