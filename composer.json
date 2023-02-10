@@ -107,5 +107,7 @@
       "composer dump-autoload"
     ],
     "code-coverage": "\"vendor/bin/phpunit\" --testsuite unit --colors=always --configuration tests/Unit/phpunit.xml.dist --coverage-clover=tests/report/coverage.clover"
-  }
+  },
+   "minimum-stability": "stable",
+    "prefer-stable": true
 }
