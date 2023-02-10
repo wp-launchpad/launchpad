@@ -10,7 +10,7 @@
       "name": "CrochetFeve0251"
     }
   ],
-  "type": "wordpress-muplugin",
+  "type": "project",
   "config": {
     "sort-packages": true,
     "preferred-install": {
