@@ -80,9 +80,9 @@ $configs = init_configs($configs, $configs_questions);
 
 function generate_namespace(string $name) {
     $name = mb_convert_encoding($name, "ASCII", "UTF-8");
-    return preg_replace_callback('/\b\w/', function($match){
+    return str_replace(' ', '', preg_replace_callback('/\b\w/', function($match){
         return strtoupper($match[0]);
-    }, $name);
+    }, $name) );
 }
 
 function generate_wp_key(string $name) {
@@ -127,12 +127,43 @@ $project_folder = __DIR__ . '/..';
 
 replace_namespace( $project_folder . '/inc', 'PSR2Plugin', $configs['namespace'] );
 
-function replace_constants(string $folder, string $old_name, string $new_name) {
+function change_project_name(string $project_folder, string $project_name) {
+    $file = $project_folder . '/inc/main.php';
+    $content = file_get_contents($file);
+    $content = str_replace("define( 'PS2_PLUGIN_PLUGIN_NAME', 'PS2 plugin' );","define( 'PS2_PLUGIN_PLUGIN_NAME', '$project_name' );", $content);
+    file_put_contents($file, $content);
+}
+
+change_project_name($project_folder, $configs['name']);
+
+function replace_prefix_constants($content, $prefix, $new_prefix) {
+    $pattern = '/\b' . $prefix . '\w+\b/';
+    return preg_replace($pattern, $new_prefix . '$0', $content);
+}
+
+function replace_prefix_constants_plugin(string $project_folder, string $plugin_key, string $old_prefix, string $new_prefix) {
+
+    $files = [
+        $project_folder . '/inc/main.php',
+        $project_folder . '/' . $plugin_key . '.php',
+    ];
+
+    foreach ($files as $file) {
+        $content = file_get_contents($file);
+        $content = replace_prefix_constants($content, $old_prefix, $new_prefix);
+        file_put_contents($file, $content);
+    }
 
 }
 
+function generate_constant_prefix(string $wp_prefix) {
+    return str_replace('-', '_', strtoupper($wp_prefix));
+}
+
+replace_prefix_constants_plugin($project_folder, $configs['wp_key'], 'PS2_PLUGIN_', generate_constant_prefix($configs['wp_key']));
+
 function generate_plugin_comment(string $folder, string $old_name, array $configs) {
-    $file = $folder . '/' . $old_name;
+    $file = $folder . '/' . $old_name . '.php';
 
     $url = $configs['url'] ? "\n * Plugin URI: {$configs['url']}" : '';
     $description = $configs['description'] ? "\n * Description: {$configs['description']}" : '';
@@ -146,6 +177,7 @@ function generate_plugin_comment(string $folder, string $old_name, array $config
  * Text Domain: {$configs['wp_key']}
  * Domain Path: /languages
  */
+
 EOT;
 
     $content = file_get_contents($file);
@@ -159,3 +191,12 @@ EOT;
 }
 
 generate_plugin_comment($project_folder, 'psr2-plugin.php', $configs);
+
+function change_project_type(string $project_folder) {
+    $file = $project_folder . '/composer.json';
+    $content = file_get_contents($file);
+    $content = str_replace('"type": "project",','"type": "wordpress-plugin",', $content);
+    file_put_contents($file, $content);
+}
+
+change_project_type($project_folder);
