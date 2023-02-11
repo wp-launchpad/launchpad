@@ -7,10 +7,10 @@
   "license": "GPL-2.0-or-later",
   "authors": [
     {
-      "name": "WP Media"
+      "name": "CrochetFeve0251"
     }
   ],
-  "type": "wordpress-muplugin",
+  "type": "project",
   "config": {
     "sort-packages": true,
     "preferred-install": {
@@ -110,5 +110,7 @@
       "@php build/init"
     ],
     "code-coverage": "\"vendor/bin/phpunit\" --testsuite unit --colors=always --configuration tests/Unit/phpunit.xml.dist --coverage-clover=tests/report/coverage.clover"
-  }
+  },
+   "minimum-stability": "stable",
+    "prefer-stable": true
 }
