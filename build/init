@@ -59,7 +59,7 @@ $configs_questions = [
 function input(string $message, callable $validate, bool $required) {
     do {
         $value = readline($message . ($required ? '' : ' (Press enter to skip)') . ":\n");
-    } while (! $validate($value) && ($value === '' && $required));
+    } while (! $validate($value) && (($value === '' || ! $value ) && $required));
 
     if($value === '' && ! $required) {
         $value = false;
@@ -200,3 +200,5 @@ function change_project_type(string $project_folder) {
 }
 
 change_project_type($project_folder);
+
+rmdir($project_folder . '/build');

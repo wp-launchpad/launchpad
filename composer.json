@@ -10,7 +10,7 @@
       "name": "CrochetFeve0251"
     }
   ],
-  "type": "project",
+  "type": "wordpress-plugin",
   "config": {
     "sort-packages": true,
     "preferred-install": {
@@ -105,9 +105,6 @@
     "post-update-cmd": [
       "\"vendor/bin/mozart\" compose",
       "composer dump-autoload"
-    ],
-    "post-create-project-cmd": [
-      "@php build/init"
     ],
     "code-coverage": "\"vendor/bin/phpunit\" --testsuite unit --colors=always --configuration tests/Unit/phpunit.xml.dist --coverage-clover=tests/report/coverage.clover"
   },
