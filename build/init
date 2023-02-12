@@ -126,6 +126,7 @@ function replace_namespace(string $project_folder, string $old_namespace, string
 $project_folder = __DIR__ . '/..';
 
 replace_namespace( $project_folder . '/inc', 'PSR2Plugin', $configs['namespace'] );
+replace_namespace( $project_folder . '/tests', 'PSR2Plugin', $configs['namespace'] );
 
 function change_project_name(string $project_folder, string $project_name) {
     $file = $project_folder . '/inc/main.php';
@@ -200,5 +201,14 @@ function change_project_type(string $project_folder) {
 }
 
 change_project_type($project_folder);
+
+function change_file_integration_tests(string $project_folder, string $wp_key) {
+    $file = $project_folder . '/tests/Integration/bootstrap.php';
+    $content = file_get_contents($file);
+    $content = str_replace("require PSR2_PLUGIN_PLUGIN_ROOT . '/psr2-plugin.php';","require PSR2_PLUGIN_PLUGIN_ROOT . '/$wp_key.php';", $content);
+    file_put_contents($file, $content);
+}
+
+change_file_integration_tests($project_folder, $configs['wp_key']);
 
 rmdir($project_folder . '/build');
