@@ -16,9 +16,6 @@
 defined( 'ABSPATH' ) || exit;
 
 define( 'PSR2_PLUGIN_VERSION',               '1.0.0' );
-define( 'PSR2_PLUGIN_WP_VERSION',            '5.5' );
-define( 'PSR2_PLUGIN_WP_VERSION_TESTED',     '5.9' );
-define( 'PSR2_PLUGIN_PHP_VERSION',           '7.1' );
 define( 'PSR2_PLUGIN_FILE',                  __FILE__ );
 define( 'PSR2_PLUGIN_PATH',                  realpath( plugin_dir_path( PSR2_PLUGIN_FILE ) ) . '/' );
 define( 'PSR2_PLUGIN_INC_PATH',              realpath( PSR2_PLUGIN_PATH . 'inc/' ) . '/' );
