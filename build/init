@@ -233,6 +233,16 @@ function rrmdir($dir)
     }
 }
 
+function replace_container_id(string $project_folder, string $wp_key) {
+    $file = $project_folder . '/inc/main.php';
+    $content = file_get_contents($file);
+    $prefix = str_replace('-', '_', $wp_key) . '_';
+    $content = str_replace("'psr2_plugin_container'","'{$prefix}_plugin_container'", $content);
+    file_put_contents($file, $content);
+}
+
+replace_container_id($project_folder, $configs['wp_key']);
+
 function reload_dependencies(string $project_folder) {
     rrmdir($project_folder . '/vendor');
     $folders = [
