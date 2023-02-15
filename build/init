@@ -234,7 +234,7 @@ function rrmdir($dir)
 }
 
 function replace_container_id(string $project_folder, string $wp_key) {
-    $file = $project_folder . '/inc/main.php';
+    $file = $project_folder . '/inc/Plugin.php';
     $content = file_get_contents($file);
     $prefix = str_replace('-', '_', $wp_key) . '_';
     $content = str_replace("'psr2_plugin_container'","'{$prefix}_plugin_container'", $content);
