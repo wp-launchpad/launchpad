@@ -2,10 +2,10 @@
 
 namespace PSR2Plugin\Tests\Unit;
 
-define( 'PS2_PLUGIN_PLUGIN_ROOT', dirname( dirname( __DIR__ ) ) . DIRECTORY_SEPARATOR );
-define( 'PS2_PLUGIN_TESTS_FIXTURES_DIR', dirname( __DIR__ ) . '/Fixtures' );
-define( 'PS2_PLUGIN_TESTS_DIR', __DIR__ );
-define( 'PS2_PLUGIN_IS_TESTING', true );
+define( 'PSR2_PLUGIN_PLUGIN_ROOT', dirname( dirname( __DIR__ ) ) . DIRECTORY_SEPARATOR );
+define( 'PSR2_PLUGIN_TESTS_FIXTURES_DIR', dirname( __DIR__ ) . '/Fixtures' );
+define( 'PSR2_PLUGIN_TESTS_DIR', __DIR__ );
+define( 'PSR2_PLUGIN_IS_TESTING', true );
 
 define( 'OBJECT', 'OBJECT' );
 /**
@@ -18,7 +18,7 @@ function load_original_files_before_mocking() {
 
     ];
     foreach ( $originals as $file ) {
-        require_once PS2_PLUGIN_PLUGIN_ROOT . $file;
+        require_once PSR2_PLUGIN_PLUGIN_ROOT . $file;
     }
 
     $fixtures = [
@@ -28,9 +28,9 @@ function load_original_files_before_mocking() {
         '/classes/WPDieException.php',
     ];
     foreach ( $fixtures as $file ) {
-        require_once PS2_PLUGIN_TESTS_FIXTURES_DIR . $file;
+        require_once PSR2_PLUGIN_TESTS_FIXTURES_DIR . $file;
     }
 }
 
 load_original_files_before_mocking();
-require_once PS2_PLUGIN_PLUGIN_ROOT . 'inc/compat.php';
+require_once PSR2_PLUGIN_PLUGIN_ROOT . 'inc/compat.php';
