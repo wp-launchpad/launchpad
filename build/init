@@ -233,4 +233,29 @@ function rrmdir($dir)
     }
 }
 
+function reload_dependencies(string $project_folder) {
+    rrmdir($project_folder . '/vendor');
+    $folders = [
+
+    ];
+    foreach ($folders as $folder) {
+        foreach (glob("$folder/*") as $entry) {
+            if (is_dir($entry)) {
+                rrmdir($entry);
+                continue;
+            }
+
+            if(basename($entry) === '.gitignore') {
+                continue;
+            }
+
+            unlink($entry);
+        }
+    }
+
+    exec('composer i');
+}
+
+reload_dependencies($project_folder);
+
 rrmdir($project_folder . '/build');
