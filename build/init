@@ -147,6 +147,8 @@ function replace_prefix_constants_plugin(string $project_folder, string $plugin_
     $files = [
         $project_folder . '/inc/main.php',
         $project_folder . '/' . $plugin_key . '.php',
+        $project_folder . '/tests/Integration/bootstrap.php',
+        $project_folder . '/tests/Unit/bootstrap.php',
     ];
 
     foreach ($files as $file) {
