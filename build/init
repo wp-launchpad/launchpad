@@ -137,6 +137,14 @@ function change_project_name(string $project_folder, string $project_name) {
 
 change_project_name($project_folder, $configs['name']);
 
+function change_file_integration_tests(string $project_folder, string $wp_key) {
+    $file = $project_folder . '/tests/Integration/bootstrap.php';
+    $content = file_get_contents($file);
+    $content = str_replace("require PSR2_PLUGIN_PLUGIN_ROOT . '/psr2-plugin.php';","require PSR2_PLUGIN_PLUGIN_ROOT . '/$wp_key.php';", $content);
+    file_put_contents($file, $content);
+}
+
+change_file_integration_tests($project_folder, $configs['wp_key']);
 function replace_prefix_constants($content, $prefix, $new_prefix) {
     $pattern = '/\b' . $prefix . '(\w+)\b/';
     return preg_replace($pattern, $new_prefix . '$1', $content);
@@ -203,15 +211,6 @@ function change_project_type(string $project_folder) {
 }
 
 change_project_type($project_folder);
-
-function change_file_integration_tests(string $project_folder, string $wp_key) {
-    $file = $project_folder . '/tests/Integration/bootstrap.php';
-    $content = file_get_contents($file);
-    $content = str_replace("require PSR2_PLUGIN_PLUGIN_ROOT . '/psr2-plugin.php';","require PSR2_PLUGIN_PLUGIN_ROOT . '/$wp_key.php';", $content);
-    file_put_contents($file, $content);
-}
-
-change_file_integration_tests($project_folder, $configs['wp_key']);
 
 function rrmdir($dir)
 {
