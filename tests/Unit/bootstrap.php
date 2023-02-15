@@ -22,7 +22,10 @@ function load_original_files_before_mocking() {
     }
 
     $fixtures = [
-
+        '/classes/WP.php',
+        '/classes/WP_Error.php',
+        '/classes/wpdb.php',
+        '/classes/WPDieException.php',
     ];
     foreach ( $fixtures as $file ) {
         require_once PS2_PLUGIN_TESTS_FIXTURES_DIR . $file;
