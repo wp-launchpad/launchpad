@@ -94,7 +94,7 @@ $configs['namespace'] = generate_namespace($configs['name']);
 $configs['wp_key'] = generate_wp_key($configs['name']);
 
 function replace_namespace_folder(string $folder, string $old_namespace, string $new_namespace) {
-    foreach (glob("$folder/*.php") as $entry) {
+    foreach (glob("$folder/*") as $entry) {
         if (is_dir($entry)) {
             replace_namespace_folder($entry, $old_namespace, $new_namespace);
             continue;
