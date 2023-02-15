@@ -146,7 +146,7 @@ function replace_prefix_constants_plugin(string $project_folder, string $plugin_
 
     $files = [
         $project_folder . '/inc/main.php',
-        $project_folder . '/' . $plugin_key . '.php',
+        $project_folder . '/psr2-plugin.php',
         $project_folder . '/tests/Integration/bootstrap.php',
         $project_folder . '/tests/Unit/bootstrap.php',
     ];
@@ -213,4 +213,24 @@ function change_file_integration_tests(string $project_folder, string $wp_key) {
 
 change_file_integration_tests($project_folder, $configs['wp_key']);
 
-rmdir($project_folder . '/build');
+function rrmdir($dir)
+{
+    if (is_dir($dir))
+    {
+        $objects = scandir($dir);
+
+        foreach ($objects as $object)
+        {
+            if ($object != '.' && $object != '..')
+            {
+                if (filetype($dir.'/'.$object) == 'dir') {rrmdir($dir.'/'.$object);}
+                else {unlink($dir.'/'.$object);}
+            }
+        }
+
+        reset($objects);
+        rmdir($dir);
+    }
+}
+
+rrmdir($project_folder . '/build');
