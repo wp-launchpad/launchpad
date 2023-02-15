@@ -105,7 +105,7 @@ function replace_namespace_folder(string $folder, string $old_namespace, string 
         }
 
         $contents = file_get_contents($entry);
-        $contents = preg_replace("/namespace $old_namespace\\\\/", "namespace $new_namespace\\\\", $contents);
+        $contents = preg_replace("/namespace $old_namespace/", "namespace $new_namespace", $contents);
         $contents = preg_replace("/use $old_namespace\\\\/", "use $new_namespace\\\\", $contents);
         file_put_contents($entry, $contents);
     }
@@ -191,7 +191,7 @@ EOT;
 
 }
 
-generate_plugin_comment($project_folder, 'psr2-plugin.php', $configs);
+generate_plugin_comment($project_folder, 'psr2-plugin', $configs);
 
 function change_project_type(string $project_folder) {
     $file = $project_folder . '/composer.json';
