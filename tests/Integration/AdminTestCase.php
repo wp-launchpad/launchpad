@@ -1,7 +1,7 @@
 <?php
 
-namespace PSR2Plugin\Tests\Integration;
-use PSR2Plugin\Tests\Integration\TestCase as BaseTestCase;
+namespace RocketLauncher\Tests\Integration;
+use RocketLauncher\Tests\Integration\TestCase as BaseTestCase;
 
 class AdminTestCase extends BaseTestCase
 {

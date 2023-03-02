@@ -1,6 +1,6 @@
 <?php
 
-namespace PSR2Plugin\Engine\Deactivation;
+namespace RocketLauncher\Engine\Deactivation;
 
 interface DeactivationInterface
 {

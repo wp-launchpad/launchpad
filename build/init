@@ -126,12 +126,12 @@ function replace_namespace(string $project_folder, string $old_namespace, string
 
 $project_folder = __DIR__ . '/..';
 
-replace_namespace( $project_folder, 'PSR2Plugin', $configs['namespace'] );
+replace_namespace( $project_folder, 'RocketLauncher', $configs['namespace'] );
 
 function change_project_name(string $project_folder, string $project_name) {
     $file = $project_folder . '/inc/main.php';
     $content = file_get_contents($file);
-    $content = str_replace("define( 'PSR2_PLUGIN_PLUGIN_NAME', 'PS2 plugin' );","define( 'PSR2_PLUGIN_PLUGIN_NAME', '$project_name' );", $content);
+    $content = str_replace("define( 'ROCKET_LAUNCHER__PLUGIN_NAME', 'PS2 plugin' );","define( 'ROCKET_LAUNCHER__PLUGIN_NAME', '$project_name' );", $content);
     file_put_contents($file, $content);
 }
 
@@ -140,7 +140,7 @@ change_project_name($project_folder, $configs['name']);
 function change_file_integration_tests(string $project_folder, string $wp_key) {
     $file = $project_folder . '/tests/Integration/bootstrap.php';
     $content = file_get_contents($file);
-    $content = str_replace("require PSR2_PLUGIN_PLUGIN_ROOT . '/psr2-plugin.php';","require PSR2_PLUGIN_PLUGIN_ROOT . '/$wp_key.php';", $content);
+    $content = str_replace("require ROCKET_LAUNCHER__PLUGIN_ROOT . '/rocket-launcher.php';","require ROCKET_LAUNCHER__PLUGIN_ROOT . '/$wp_key.php';", $content);
     file_put_contents($file, $content);
 }
 
@@ -154,7 +154,7 @@ function replace_prefix_constants_plugin(string $project_folder, string $plugin_
 
     $files = [
         $project_folder . '/inc/main.php',
-        $project_folder . '/psr2-plugin.php',
+        $project_folder . '/rocket-launcher.php',
         $project_folder . '/tests/Integration/bootstrap.php',
         $project_folder . '/tests/Unit/bootstrap.php',
     ];
@@ -171,7 +171,7 @@ function generate_constant_prefix(string $wp_prefix) {
     return str_replace('-', '_', strtoupper($wp_prefix)) . '_';
 }
 
-replace_prefix_constants_plugin($project_folder, $configs['wp_key'], 'PSR2_PLUGIN_', generate_constant_prefix($configs['wp_key']));
+replace_prefix_constants_plugin($project_folder, $configs['wp_key'], 'ROCKET_LAUNCHER__', generate_constant_prefix($configs['wp_key']));
 
 function generate_plugin_comment(string $folder, string $old_name, array $configs) {
     $file = $folder . '/' . $old_name . '.php';
@@ -201,7 +201,7 @@ EOT;
 
 }
 
-generate_plugin_comment($project_folder, 'psr2-plugin', $configs);
+generate_plugin_comment($project_folder, 'rocket-launcher', $configs);
 
 function change_project_type(string $project_folder) {
     $file = $project_folder . '/composer.json';
@@ -236,7 +236,7 @@ function replace_container_id(string $project_folder, string $wp_key) {
     $file = $project_folder . '/inc/Plugin.php';
     $content = file_get_contents($file);
     $prefix = str_replace('-', '_', $wp_key);
-    $content = str_replace("'psr2_plugin_container'","'{$prefix}_plugin_container'", $content);
+    $content = str_replace("'rocket_launcher_container'","'{$prefix}_plugin_container'", $content);
     file_put_contents($file, $content);
 }
 

@@ -1,5 +1,5 @@
 <?php
-namespace PSR2Plugin\EventManagement;
+namespace RocketLauncher\EventManagement;
 
 interface EventManagerAwareSubscriberInterface extends SubscriberInterface {
     /**

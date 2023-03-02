@@ -1,6 +1,6 @@
 <?php
 
-namespace PSR2Plugin\Tests\Integration;
+namespace RocketLauncher\Tests\Integration;
 
 trait FilterTrait {
 

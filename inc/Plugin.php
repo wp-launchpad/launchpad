@@ -1,11 +1,11 @@
 <?php
 
-namespace PSR2Plugin;
+namespace RocketLauncher;
 
-use PSR2Plugin\Dependencies\League\Container\ServiceProvider\ServiceProviderInterface;
-use PSR2Plugin\Dependencies\League\Container\Container;
-use PSR2Plugin\EventManagement\EventManager;
-use PSR2Plugin\EventManagement\SubscriberInterface;
+use RocketLauncher\Dependencies\League\Container\ServiceProvider\ServiceProviderInterface;
+use RocketLauncher\Dependencies\League\Container\Container;
+use RocketLauncher\EventManagement\EventManager;
+use RocketLauncher\EventManagement\SubscriberInterface;
 
 class Plugin
 {
@@ -37,7 +37,7 @@ class Plugin
     public function __construct( Container $container ) {
         $this->container = $container;
 
-        add_filter( 'psr2_plugin_container', [ $this, 'get_container' ] );
+        add_filter( 'rocket_launcher_container', [ $this, 'get_container' ] );
 
     }
 

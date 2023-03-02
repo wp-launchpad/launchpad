@@ -1,6 +1,6 @@
 <?php
 
-namespace PSR2Plugin\Engine\Activation;
+namespace RocketLauncher\Engine\Activation;
 
 interface ActivationInterface
 {

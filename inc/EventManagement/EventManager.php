@@ -1,6 +1,6 @@
 <?php
 
-namespace PSR2Plugin\EventManagement;
+namespace RocketLauncher\EventManagement;
 
 /**
  * The event manager manages events using the WordPress plugin API.

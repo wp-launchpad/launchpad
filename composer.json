@@ -1,6 +1,6 @@
 {
-  "name": "crochetfeve0251/psr2-plugin",
-  "description": "Template for a psr2 compatible plugin",
+  "name": "crochetfeve0251/rocket-launcher",
+  "description": "Template for a psr4 compatible plugin",
   "keywords": [
     "wordpress"
   ],
@@ -27,10 +27,6 @@
     {
       "type": "composer",
       "url": "https://wpackagist.org"
-    },
-    {
-      "type": "git",
-      "url": "git@github.com:CrochetFeve0251/psr2-plugin-builder.git"
     }
   ],
   "require": {
@@ -43,6 +39,7 @@
     "php": "^7 || ^8",
     "brain/monkey": "^2.0",
     "coenjacobs/mozart": "^0.7",
+    "crochetfeve0251/rocket-launcher-builder": "^0.0.5",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "league/container": "^3.3",
     "mnsami/composer-custom-directory-installer": "^2.0",
@@ -53,20 +50,19 @@
     "roave/security-advisories": "dev-master",
     "szepeviktor/phpstan-wordpress": "^0.7.0",
     "wp-coding-standards/wpcs": "^2",
-    "wp-media/phpunit": "^3.0",
-    "crochetfeve0251/psr2-plugin-builder": "dev-main"
+    "wp-media/phpunit": "^3.0"
   },
   "autoload": {
     "classmap": [
       "inc/classes"
     ],
     "psr-4": {
-      "PSR2Plugin\\": "inc/"
+      "RocketLauncher\\": "inc/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "PSR2Plugin\\Tests\\": "tests/"
+      "RocketLauncher\\Tests\\": "tests/"
     }
   },
   "extra": {
@@ -74,10 +70,10 @@
       "vendor/{$vendor}/{$name}/": ["type:wordpress-plugin"]
     },
     "mozart": {
-      "dep_namespace": "PSR2Plugin\\Dependencies\\",
+      "dep_namespace": "RocketLauncher\\Dependencies\\",
       "dep_directory": "/inc/Dependencies/",
       "classmap_directory": "/inc/classes/dependencies/",
-      "classmap_prefix": "PSR2Plugin_",
+      "classmap_prefix": "RocketLauncher",
       "packages": [
         "berlindb/core",
         "league/container"

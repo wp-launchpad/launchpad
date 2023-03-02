@@ -3,7 +3,7 @@ Rocket launcher is a boilerplate for WordPress plugin that allows you to create 
 time.
 
 ### Install
-You create a new project with the following command `composer create-project crochetfeve0251/psr2-plugin my-plugin`.
+You create a new project with the following command `composer create-project crochetfeve0251/rocket-launcher my-plugin`.
 Then you will have to run the script `build/init` to generate the project.
 
 ### Class generator
