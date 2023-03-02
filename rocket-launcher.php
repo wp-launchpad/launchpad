@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: PSR2 Plugin
- * Description: PSR2 Plugin.
+ * Plugin Name: Rocket Launcher
+ * Description: Rocket Launcher.
  * Version: 1.0.0
  * Requires at least: 5.5
  * Requires PHP: 7.1
