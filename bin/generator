@@ -5,4 +5,6 @@ use RocketLauncherBuilder\AppBuilder;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-AppBuilder::init(__DIR__ . '/../');
+AppBuilder::init(__DIR__ . '/../', [
+        \RocketLauncherTakeOff\ServiceProvider::class,
+]);

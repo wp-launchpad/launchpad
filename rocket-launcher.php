@@ -15,11 +15,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'ROCKET_LAUNCHER__VERSION',               '1.0.0' );
-define( 'ROCKET_LAUNCHER__FILE',                  __FILE__ );
-define( 'ROCKET_LAUNCHER__PATH',                  realpath( plugin_dir_path( ROCKET_LAUNCHER__FILE ) ) . '/' );
-define( 'ROCKET_LAUNCHER__INC_PATH',              realpath( ROCKET_LAUNCHER__PATH . 'inc/' ) . '/' );
-define( 'ROCKET_LAUNCHER__TEMPLATE_PATH',         realpath( ROCKET_LAUNCHER__PATH . 'templates/' ) . '/' );
+define( 'ROCKET_LAUNCHER_VERSION',               '1.0.0' );
+define( 'ROCKET_LAUNCHER_FILE',                  __FILE__ );
+define( 'ROCKET_LAUNCHER_PATH',                  realpath( plugin_dir_path( ROCKET_LAUNCHER_FILE ) ) . '/' );
+define( 'ROCKET_LAUNCHER_INC_PATH',              realpath( ROCKET_LAUNCHER_PATH . 'inc/' ) . '/' );
+define( 'ROCKET_LAUNCHER_TEMPLATE_PATH',         realpath( ROCKET_LAUNCHER_PATH . 'templates/' ) . '/' );
 
 
-require ROCKET_LAUNCHER__INC_PATH . 'main.php';
+require ROCKET_LAUNCHER_INC_PATH . 'main.php';

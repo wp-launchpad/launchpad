@@ -10,7 +10,7 @@
       "name": "CrochetFeve0251"
     }
   ],
-  "type": "wordpress-plugin",
+  "type": "project",
   "config": {
     "sort-packages": true,
     "preferred-install": {
@@ -40,6 +40,7 @@
     "brain/monkey": "^2.0",
     "coenjacobs/mozart": "^0.7",
     "crochetfeve0251/rocket-launcher-builder": "^0.0.5",
+    "crochetfeve0251/rocket-launcher-take-off": "^0.0.1",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "league/container": "^3.3",
     "mnsami/composer-custom-directory-installer": "^2.0",

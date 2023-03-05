@@ -2,10 +2,10 @@
 
 namespace RocketLauncher\Tests\Unit;
 
-define( 'ROCKET_LAUNCHER__PLUGIN_ROOT', dirname( dirname( __DIR__ ) ) . DIRECTORY_SEPARATOR );
-define( 'ROCKET_LAUNCHER__TESTS_FIXTURES_DIR', dirname( __DIR__ ) . '/Fixtures' );
-define( 'ROCKET_LAUNCHER__TESTS_DIR', __DIR__ );
-define( 'ROCKET_LAUNCHER__IS_TESTING', true );
+define( 'ROCKET_LAUNCHER_PLUGIN_ROOT', dirname( dirname( __DIR__ ) ) . DIRECTORY_SEPARATOR );
+define( 'ROCKET_LAUNCHER_TESTS_FIXTURES_DIR', dirname( __DIR__ ) . '/Fixtures' );
+define( 'ROCKET_LAUNCHER_TESTS_DIR', __DIR__ );
+define( 'ROCKET_LAUNCHER_IS_TESTING', true );
 
 define( 'OBJECT', 'OBJECT' );
 /**
@@ -18,7 +18,7 @@ function load_original_files_before_mocking() {
 
     ];
     foreach ( $originals as $file ) {
-        require_once ROCKET_LAUNCHER__PLUGIN_ROOT . $file;
+        require_once ROCKET_LAUNCHER_PLUGIN_ROOT . $file;
     }
 
     $fixtures = [
@@ -28,9 +28,9 @@ function load_original_files_before_mocking() {
         '/classes/WPDieException.php',
     ];
     foreach ( $fixtures as $file ) {
-        require_once ROCKET_LAUNCHER__TESTS_FIXTURES_DIR . $file;
+        require_once ROCKET_LAUNCHER_TESTS_FIXTURES_DIR . $file;
     }
 }
 
 load_original_files_before_mocking();
-require_once ROCKET_LAUNCHER__PLUGIN_ROOT . 'inc/compat.php';
+require_once ROCKET_LAUNCHER_PLUGIN_ROOT . 'inc/compat.php';
