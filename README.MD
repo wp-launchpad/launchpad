@@ -11,10 +11,12 @@ This boilerplate comes with a class generator that will make you save ton of tim
 classes to use it you can run the following command `bin/generator initialize`.
 
 With this commandline the following command are available:
+- `initialize`: Initialize the project.
 - `subscriber`: Generate a subscriber file and attach it to the project.
 - `provider`: Generate a service provider file and attach it to the project.
 - `test`: Generate a test file.
 - `table`: Generate files for adding a new table to the project.
+- `fixture`: Generate a fixture file and attach it to the project.
 
 ### Testing
 This boilerplate offers an architecture that makes testing your code simple and time efficient.
