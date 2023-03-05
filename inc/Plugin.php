@@ -94,7 +94,7 @@ class Plugin
         if( is_admin() ) {
             $subscribers = array_merge($subscribers, $service_provider_instance->get_front_subscribers());
         } else {
-            $subscribers = array_merge($subscribers, $service_provider_instance->get_front_subscribers());
+            $subscribers = array_merge($subscribers, $service_provider_instance->get_admin_subscribers());
         }
 
         if ( empty( $subscribers ) ) {
