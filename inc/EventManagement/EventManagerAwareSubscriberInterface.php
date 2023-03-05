@@ -5,7 +5,6 @@ interface EventManagerAwareSubscriberInterface extends SubscriberInterface {
     /**
      * Set the WordPress event manager for the subscriber.
      *
-     * @since 3.1
      * @author Remy Perona
      *
      * @param EventManager $event_manager Event_Manager instance.

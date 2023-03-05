@@ -25,13 +25,19 @@ function plugin_init() {
     }
 
     // Last constants.
-    define( 'ROCKET_LAUNCHER_PLUGIN_NAME', 'PS2 plugin' );
+    define( 'ROCKET_LAUNCHER_PLUGIN_NAME', 'Rocket launcher' );
     define( 'ROCKET_LAUNCHER_PLUGIN_SLUG', sanitize_key( ROCKET_LAUNCHER_PLUGIN_NAME ) );
 
     $wp_rocket = new Plugin(
         new Container()
     );
-    $wp_rocket->load(ROCKET_LAUNCHER_PLUGIN_SLUG, ROCKET_LAUNCHER_TEMPLATE_PATH );
+
+    $params = [
+        'plugin_name' => ROCKET_LAUNCHER_PLUGIN_SLUG,
+        'template_path' => ROCKET_LAUNCHER_TEMPLATE_PATH,
+    ];
+
+    $wp_rocket->load( $params );
 
     // Call defines and functions.
 }

@@ -5,7 +5,6 @@ namespace RocketLauncher\EventManagement;
 /**
  * The event manager manages events using the WordPress plugin API.
  *
- * @since 3.1
  * @author Carl Alexander <contact@carlalexander.ca>
  */
 class EventManager {

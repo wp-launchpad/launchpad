@@ -2,7 +2,7 @@
 
 namespace RocketLauncher;
 
-use RocketLauncher\Dependencies\League\Container\ServiceProvider\ServiceProviderInterface;
+use RocketLauncher\Container\ServiceProviderInterface;
 use RocketLauncher\Dependencies\League\Container\Container;
 use RocketLauncher\EventManagement\EventManager;
 use RocketLauncher\EventManagement\SubscriberInterface;
@@ -12,8 +12,6 @@ class Plugin
     /**
      * Instance of Container class.
      *
-     * @since 3.3
-     *
      * @var Container instance
      */
     private $container;
@@ -21,16 +19,12 @@ class Plugin
     /**
      * Instance of the event manager.
      *
-     * @since 3.6
-     *
      * @var EventManager
      */
     private $event_manager;
 
     /**
      * Creates an instance of the Plugin.
-     *
-     * @since 3.0
      *
      * @param Container $container     Instance of the container.
      */
@@ -53,14 +47,18 @@ class Plugin
     /**
      * Loads the plugin into WordPress.
      *
-     * @since 3.0
+     * @param array<string,mixed> $params Parameters to pass to the container.
      *
      * @return void
+     *
      */
-    public function load(string $plugin_name, string $template_path) {
+    public function load(array $params) {
         $this->event_manager = new EventManager();
-        $this->container->share( 'plugin_name', $plugin_name );
-        $this->container->share( 'template_path', $template_path );
+
+        foreach ($params as $key => $value) {
+            $this->container->share( $key, $value );
+        }
+
         $this->container->share( 'event_manager', $this->event_manager );
         foreach ( $this->get_service_providers() as $service_provider ) {
             $this->container->addServiceProvider( $service_provider );
@@ -90,11 +88,20 @@ class Plugin
      * @return void
      */
     private function load_subscribers( ServiceProviderInterface $service_provider_instance ) {
-        if ( empty( $service_provider_instance->subscribers ) ) {
+
+        $subscribers = $service_provider_instance->get_common_subscribers();
+
+        if( is_admin() ) {
+            $subscribers = array_merge($subscribers, $service_provider_instance->get_front_subscribers());
+        } else {
+            $subscribers = array_merge($subscribers, $service_provider_instance->get_front_subscribers());
+        }
+
+        if ( empty( $subscribers ) ) {
             return;
         }
 
-        foreach ( $service_provider_instance->subscribers as $subscriber ) {
+        foreach ( $subscribers as $subscriber ) {
             $subscriber_object = $this->container->get( $subscriber );
             if ( $subscriber_object instanceof SubscriberInterface ) {
                 $this->container->get( 'event_manager' )->add_subscriber( $subscriber_object );
