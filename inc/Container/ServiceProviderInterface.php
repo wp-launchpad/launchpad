@@ -8,6 +8,13 @@ use RocketLauncher\Dependencies\League\Container\ServiceProvider\ServiceProvider
 interface ServiceProviderInterface extends LeagueServiceProviderInterface
 {
     /**
+     * Return IDs provided by the Service Provider.
+     *
+     * @return string[]
+     */
+    public function declares(): array;
+
+    /**
      * Return IDs from front subscribers.
      *
      * @return string[]

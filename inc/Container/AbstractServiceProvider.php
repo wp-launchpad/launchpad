@@ -7,6 +7,32 @@ use RocketLauncher\Dependencies\League\Container\ServiceProvider\AbstractService
 abstract class AbstractServiceProvider extends LeagueServiceProvider implements ServiceProviderInterface {
 
     /**
+     * Return IDs provided by the Service Provider.
+     *
+     * @return string[]
+     */
+    public function declares(): array {
+        return [];
+    }
+
+    /**
+     * Override the logic from the provides method.
+     *
+     * @param string $alias Alias to check.
+     *
+     * @return bool
+     */
+    public function provides(string $alias): bool
+    {
+
+        if(count($this->provides) === 0) {
+            $this->provides = array_merge($this->declares(), $this->get_front_subscribers(), $this->get_common_subscribers(), $this->get_admin_subscribers());
+        }
+
+        return parent::provides($alias);
+    }
+
+    /**
      * Return IDs from front subscribers.
      *
      * @return string[]
