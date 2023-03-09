@@ -11,4 +11,5 @@ return [
     'plugin_launcher_file' => $plugin_launcher_path . '/' . basename($plugin_launcher_path) . '.php',
     'plugin_launcher_path' => $plugin_launcher_path,
     'plugin_inc_path' => realpath( $plugin_launcher_path . 'inc/' ) . '/',
+    'prefix' => 'rocket_launcher',
 ];
