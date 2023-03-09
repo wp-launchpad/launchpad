@@ -13,13 +13,11 @@
  *
  */
 
+use function RocketLauncher\Dependencies\RocketLauncherCore\boot;
+
 defined( 'ABSPATH' ) || exit;
 
-define( 'ROCKET_LAUNCHER_VERSION',               '1.0.0' );
-define( 'ROCKET_LAUNCHER_FILE',                  __FILE__ );
-define( 'ROCKET_LAUNCHER_PATH',                  realpath( plugin_dir_path( ROCKET_LAUNCHER_FILE ) ) . '/' );
-define( 'ROCKET_LAUNCHER_INC_PATH',              realpath( ROCKET_LAUNCHER_PATH . 'inc/' ) . '/' );
-define( 'ROCKET_LAUNCHER_TEMPLATE_PATH',         realpath( ROCKET_LAUNCHER_PATH . 'templates/' ) . '/' );
 
+require __DIR__ . '/inc/Dependencies/RocketLauncherCore/boot.php';
 
-require ROCKET_LAUNCHER_INC_PATH . 'main.php';
+boot(__FILE__);
