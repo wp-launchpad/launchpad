@@ -8,7 +8,7 @@
  * Author: CrochetFeve0251
  * Licence: GPLv2 or later
  *
- * Text Domain: rocket-launcher
+ * Text Domain: rocketlauncher
  * Domain Path: languages
  *
  */
