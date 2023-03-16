@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) || exit;
+
 $plugin_name = 'Rocket launcher';
 
 $plugin_launcher_path = dirname(__DIR__) . '/';
