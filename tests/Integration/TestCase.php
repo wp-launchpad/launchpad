@@ -4,7 +4,7 @@ namespace RocketLauncher\Tests\Integration;
 use ReflectionObject;
 use WPMedia\PHPUnit\Integration\TestCase as BaseTestCase;
 
-class TestCase extends BaseTestCase
+abstract class TestCase extends BaseTestCase
 {
     protected $config;
     protected static $transients         = [];
