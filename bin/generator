@@ -7,4 +7,5 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 AppBuilder::init(__DIR__ . '/../', [
         \RocketLauncherTakeOff\ServiceProvider::class,
+        \RocketLauncherBuilderInstaller\ServiceProvider::class,
 ]);
