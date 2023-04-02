@@ -1,6 +1,6 @@
 <?php
 
-namespace RocketLauncher;
+namespace Launchpad;
 
 class ServiceProvider extends Dependencies\RocketLauncherAutoresolver\ServiceProvider
 {

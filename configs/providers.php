@@ -3,5 +3,5 @@
 defined( 'ABSPATH' ) || exit;
 
 return [
-    \RocketLauncher\ServiceProvider::class,
+    \Launchpad\ServiceProvider::class,
 ];

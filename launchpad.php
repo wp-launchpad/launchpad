@@ -1,19 +1,19 @@
 <?php
 /**
- * Plugin Name: Rocket Launcher
- * Description: Rocket Launcher.
+ * Plugin Name: Launchpad
+ * Description: Launchpad.
  * Version: 1.0.0
  * Requires at least: 5.5
  * Requires PHP: 7.1
  * Author: CrochetFeve0251
  * Licence: GPLv2 or later
  *
- * Text Domain: rocketlauncher
+ * Text Domain: launchpad
  * Domain Path: languages
  *
  */
 
-use function RocketLauncher\Dependencies\RocketLauncherCore\boot;
+use function Launchpad\Dependencies\RocketLauncherCore\boot;
 
 defined( 'ABSPATH' ) || exit;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace RocketLauncher\Tests\Unit;
+namespace Launchpad\Tests\Unit;
 
 use ReflectionObject;
 use WPMedia\PHPUnit\Unit\TestCase as BaseTestCase;

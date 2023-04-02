@@ -1,6 +1,6 @@
 <?php
 
-namespace RocketLauncher\Tests\Integration;
+namespace Launchpad\Tests\Integration;
 
 trait FilterTrait {
 

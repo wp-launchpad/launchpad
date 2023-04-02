@@ -1,7 +1,7 @@
 <?php
 
-namespace RocketLauncher\Tests\Integration;
-use RocketLauncher\Tests\Integration\TestCase as BaseTestCase;
+namespace Launchpad\Tests\Integration;
+use Launchpad\Tests\Integration\TestCase as BaseTestCase;
 
 class AdminTestCase extends BaseTestCase
 {

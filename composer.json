@@ -1,8 +1,10 @@
 {
-    "name": "crochetfeve0251/rocket-launcher",
-    "description": "Template for a psr4 compatible plugin",
+    "name": "wp-launchpad/launchpad",
+    "description": "Framework to create a modern PHP plugin in no time",
     "keywords": [
-        "wordpress"
+        "wordpress",
+        "framework",
+        "plugin"
     ],
     "license": "GPL-2.0-or-later",
     "authors": [
@@ -59,12 +61,12 @@
             "inc/classes"
         ],
         "psr-4": {
-            "RocketLauncher\\": "inc/"
+            "Launchpad\\": "inc/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RocketLauncher\\Tests\\": "tests/"
+            "Launchpad\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -74,10 +76,10 @@
             ]
         },
         "mozart": {
-            "dep_namespace": "RocketLauncher\\Dependencies\\",
+            "dep_namespace": "Launchpad\\Dependencies\\",
             "dep_directory": "/inc/Dependencies/",
             "classmap_directory": "/inc/classes/dependencies/",
-            "classmap_prefix": "RocketLauncher",
+            "classmap_prefix": "Launchpad",
             "packages": [
                 "league/container",
                 "crochetfeve0251/rocket-launcher-core",
