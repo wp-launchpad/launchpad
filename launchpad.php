@@ -13,11 +13,11 @@
  *
  */
 
-use function Launchpad\Dependencies\RocketLauncherCore\boot;
+use function Launchpad\Dependencies\LaunchpadCore\boot;
 
 defined( 'ABSPATH' ) || exit;
 
 
-require __DIR__ . '/inc/Dependencies/RocketLauncherCore/boot.php';
+require __DIR__ . '/inc/Dependencies/LaunchpadCore/boot.php';
 
 boot(__FILE__);
