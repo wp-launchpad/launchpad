@@ -1,5 +1,5 @@
-## Rocket launcher
-Rocket launcher is a boilerplate for WordPress plugin that allows you to create a modern PHP plugin in no 
+## Launchpad
+Launchpad is a boilerplate for WordPress plugin that allows you to create a modern PHP plugin in no 
 time.
 
 ### Install
