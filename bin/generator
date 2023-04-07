@@ -7,5 +7,5 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 AppBuilder::init(__DIR__ . '/../', [
         \LaunchpadTakeOff\ServiceProvider::class,
-        \LaunchpadInstaller\ServiceProvider::class,
+        \LaunchpadCLIInstaller\ServiceProvider::class,
 ]);
