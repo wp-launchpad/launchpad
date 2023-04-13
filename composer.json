@@ -40,7 +40,7 @@
         "brain/monkey": "^2.0",
         "coenjacobs/mozart": "^0.7",
         "wp-launchpad/autoresolver": "^0.0.5",
-        "wp-launchpad/cli": "^1.0.2",
+        "wp-launchpad/cli": "^1.0.1",
         "wp-launchpad/cli-installer": "^0.0.2",
         "wp-launchpad/core": "^0.0.8",
         "wp-launchpad/take-off": "^1.0.1",
