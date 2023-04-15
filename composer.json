@@ -41,7 +41,7 @@
         "coenjacobs/mozart": "^0.7",
         "wp-launchpad/autoresolver": "^0.0.5",
         "wp-launchpad/cli": "^1.0.2",
-        "wp-launchpad/cli-installer": "^0.0.2",
+        "wp-launchpad/cli-installer": "^0.0.3",
         "wp-launchpad/core": "^0.0.8",
         "wp-launchpad/take-off": "^1.0.1",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
