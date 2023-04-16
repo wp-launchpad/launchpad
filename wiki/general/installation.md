@@ -1,5 +1,3 @@
-## Installation
-
 ## Create the project
 Launchpad is a Composer project due to that it is possible to create a new project using the framework in one command line:
 [`composer create-project wp-launchpad/launchpad my-plugin`](https://packagist.org/packages/wp-launchpad/launchpad)
