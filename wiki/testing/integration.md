@@ -18,9 +18,9 @@ That will download an install a testing version of WordPress inside your `/tmp` 
 
 Inside that class we will have then to add the following content:
 
-- The namespace from your test that follows the path from your class in our example it is `RocketLauncher\Tests\Unit\inc\Engine\MyNamespace\MyClass`.
+- The namespace from your test that follows the path from your class in our example it is `Launchpad\Tests\Unit\inc\Engine\MyNamespace\MyClass`.
 - The definition from the class with the following name Test_ followed by the name of the method, for your example will be `Test_MyMethod`.
-- That class should be extending `RocketLauncher\Tests\Integration\TestCase`.
+- That class should be extending `Launchpad\Tests\Integration\TestCase`.
 - Finally that class should contain a public method starting by `test` and that describe the usage from  the test in your case it will be `testReturnAsExpected` .
 
 ### Launching integration tests
@@ -34,14 +34,14 @@ Once the fixture defined the next step is to link it to the actual test.
 For that we will have:
 
 - To add a provider on our old test.
-- Then replace constants by the new values provided by the provider
+- Then replace constants by the new values provided by the provider.
 
 To add a provider to your test we will have to use the docblock from the method and add it :
 
 ```php
-namespace RocketLauncher\Tests\Integration\inc\Engine\MyNamespace\MyClass;
+namespace Launchpad\Tests\Integration\inc\Engine\MyNamespace\MyClass;
 
-use RocketLauncher\Tests\Integration\TestCase;
+use Launchpad\Tests\Integration\TestCase;
 
 class Test_MyMethod extends TestCase {
 
@@ -60,9 +60,9 @@ Once we done that the data will be automatically loaded from the fixture however
 To do so we will have to add two parameters to your method config and expected that will be fed with values present inside of each scenario from our fixture file:
 
 ```php
-namespace RocketLauncher\Tests\Integration\inc\Engine\MyNamespace\MyClass;
+namespace Launchpad\Tests\Integration\inc\Engine\MyNamespace\MyClass;
 
-use RocketLauncher\Tests\Integration\TestCase;
+use Launchpad\Tests\Integration\TestCase;
 
 class Test_MyMethod extends TestCase {
 
@@ -82,15 +82,15 @@ Often actions and filters registered in a plugin is also used by other part of W
 That's why in Rocket launcher, you have a trait to unregister all callback except your on the action during the test.
 
 To disable all callback except yours you need:
-- First to use the trait `RocketLauncher\Tests\Integration\ActionTrait` for an action and `RocketLauncher\Tests\Integration\FilterTrait` for a filter.
+- First to use the trait `Launchpad\Tests\Integration\ActionTrait` for an action and `Launchpad\Tests\Integration\FilterTrait` for a filter.
 - Create a `set_up` method and use the method `unregisterAllCallbacksFromActionExcept` for an action and `unregisterAllCallbacksFromFilterExcept` for a filter to disable all callbacks before the test.
 - Create a `tear_down` method and use the method `restoreWpAction` for an action and `restoreWpFilter` for a filter to reset callbacks on that action/filter.
 
 ```php
-namespace RocketLauncher\Tests\Integration\inc\Engine\MyNamespace\MyClass;
+namespace Launchpad\Tests\Integration\inc\Engine\MyNamespace\MyClass;
 
-use RocketLauncher\Tests\Integration\TestCase;
-use RocketLauncher\Tests\Integration\ActionTrait;
+use Launchpad\Tests\Integration\TestCase;
+use Launchpad\Tests\Integration\ActionTrait;
 
 class Test_MyMethod extends TestCase {
    use ActionTrait;
@@ -127,9 +127,9 @@ To do that we proceed in 3 steps:
 This way we have the test returning the value we want during the test without impacting other tests.
 
 ```php
-namespace RocketLauncher\Tests\Integration\inc\Engine\MyNamespace\MyClass;
+namespace Launchpad\Tests\Integration\inc\Engine\MyNamespace\MyClass;
 
-use RocketLauncher\Tests\Integration\TestCase;
+use Launchpad\Tests\Integration\TestCase;
 
 class Test_MyMethod extends TestCase {
    protected $configs;
@@ -163,9 +163,9 @@ Creating a test with fixture can be time consuming that’s why we created a way
 
 To generate the code we saw in the previous part, we could have use the command:
 
-`bin/builder test RocketLauncher/Engine/MyNamespace/MyClass::my_method --type integration --scenarios myFirstScenario,mySecondScenario`
+`bin/builder test Launchpad/Engine/MyNamespace/MyClass::my_method --type integration --scenarios myFirstScenario,mySecondScenario`
 
-To know more about the CLI, you can check [your documentation page about it](../cli/commands.md).
+To know more about the CLI, you can check [your documentation page about it](../cli/index.md).
 
 ## Creating an external run group for my Integration tests
 
@@ -182,9 +182,9 @@ The first step when creating an external run is to identify classes to run insid
 For that in Rocket launcher we use the `@group` attribute from the docblock that we will add on top of the class:
 
 ```php
-namespace RocketLauncher\Tests\Integration\inc\Engine\MyNamespace\MyClass;
+namespace Launchpad\Tests\Integration\inc\Engine\MyNamespace\MyClass;
 
-use RocketLauncher\Tests\Integration\TestCase;
+use Launchpad\Tests\Integration\TestCase;
 /**
  * @group MyGroup
  */
@@ -228,19 +228,19 @@ The last step is to add the custom values that activates only on the external ru
 
 For that we will have to modify the bootstrap file from the integration tests at the following path `/tests/Integration/bootstrap.php`.
 
-Inside the callback from the filter `muplugins_loaded` and before `require ROCKET_LAUNCHER_PLUGIN_ROOT . '/rocket-launcher.php';` , we need to use `isGroup` method from `WPMedia\PHPUnit\BootstrapManager` to add your logic:
+Inside the callback from the filter `muplugins_loaded` and before `require LAUNCHPAD_PLUGIN_ROOT . '/launchpad.php';` , we need to use `isGroup` method from `WPMedia\PHPUnit\BootstrapManager` to add your logic:
 
 ```php
 
 <?php
-namespace RocketLauncher\Tests\Integration;
+namespace Launchpad\Tests\Integration;
 
 use WPMedia\PHPUnit\BootstrapManager;
 
-define( 'ROCKET_LAUNCHER_PLUGIN_ROOT', dirname( dirname( __DIR__ ) ) . DIRECTORY_SEPARATOR );
-define( 'ROCKET_LAUNCHER_TESTS_FIXTURES_DIR', dirname( __DIR__ ) . '/Fixtures' );
-define( 'ROCKET_LAUNCHER_TESTS_DIR', __DIR__ );
-define( 'ROCKET_LAUNCHER_IS_TESTING', true );
+define( 'LAUNCHPAD_PLUGIN_ROOT', dirname( dirname( __DIR__ ) ) . DIRECTORY_SEPARATOR );
+define( 'LAUNCHPAD_TESTS_FIXTURES_DIR', dirname( __DIR__ ) . '/Fixtures' );
+define( 'LAUNCHPAD_TESTS_DIR', __DIR__ );
+define( 'LAUNCHPAD_IS_TESTING', true );
 
 // Manually load the plugin being tested.
 tests_add_filter(
@@ -250,7 +250,7 @@ tests_add_filter(
             //your custom env
         }
         // Load the plugin.
-        require ROCKET_LAUNCHER_PLUGIN_ROOT . '/rocket-launcher.php';
+        require LAUNCHPAD_PLUGIN_ROOT . '/launchpad.php';
     }
 );
 ```
@@ -260,6 +260,6 @@ Creating an external run can be time consuming that’s why we created a way to 
 
 To generate the code we saw in the previous part, we could have use the command:
 
-`bin/builder test RocketLauncher/Engine/MyNamespace/MyClass::my_method --type integration --external MyGroup`
+`bin/builder test Launchpad/Engine/MyNamespace/MyClass::my_method --type integration --external MyGroup`
 
-To know more about the CLI, you can check [your documentation page about it](../cli/commands.md).
+To know more about the CLI, you can check [your documentation page about it](../cli/index.md).
