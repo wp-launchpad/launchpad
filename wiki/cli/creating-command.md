@@ -30,3 +30,15 @@ class ServiceProvider implements LaunchpadCLI\ServiceProviders\ServiceProviderIn
 
 }
 ```
+If needed every service provider will receive 3 parameters in their constructor:
+- `Configurations $configs`: Configurations from the project.
+- `Filesystem $filesystem`: Filesystem initalized at the root from the project.
+- `string $app_dir`: path from the application directory.
+
+Then inside the `attach_commands` method you can register by using the method `add` on `$app` as following:
+
+```php
+$app->add(new Command());
+```
+
+Finally the last step is to register the serivce provider into the CLI.
