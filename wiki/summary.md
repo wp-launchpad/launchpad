@@ -10,8 +10,8 @@
 - [Creating a command](cli/creating-command.md)
 
 ## Testing
-- [Fixtures](testing/fixture.md)
 - [Unit test](testing/unit.md)
+- [Fixtures](testing/fixture.md)
 - [Integration test](testing/integration.md)
 
 ## Container
