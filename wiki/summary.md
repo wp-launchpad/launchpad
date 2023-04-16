@@ -17,7 +17,7 @@
 ## Container
 - [Default behavior](container/index.md)
 - [Manual wiring](container/manual-wiring.md)
-
+- [Activation/Desactivation](container/activate-deactivate.md)
 ## Modules
 - [Definition](modules/index.md)
 - [Listing](modules/listing.md)
