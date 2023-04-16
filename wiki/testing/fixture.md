@@ -13,7 +13,7 @@ Fixtures allows you to create scenarios with set of values and expectations for 
 For creating a fixture nothing more simple: 
 if we take back your example with the my method class that had a test at the path `tests/Unit/inc/Engine/MyNamespace/MyClass/myMethod.php` then we need to create a fixture following the exact same path at the only difference we are replacing `Unit` by `Fixtures`: 
 
-`tests/Fixtures/inc/Engine/MyNamespace/MyClass/myMethod.php'
+`tests/Fixtures/inc/Engine/MyNamespace/MyClass/myMethod.php`
 
 Then inside that file we will create an array with a entry for each scenario:
 
