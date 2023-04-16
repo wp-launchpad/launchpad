@@ -104,3 +104,14 @@ class Test_MyMethod extends TestCase {
 
 }
 ```
+
+### Generating the class and fixtures with the CLI
+
+Creating a test with fixture can be time consuming that’s why we created a way to generate it rapidly with the CLI.
+
+To generate the code we saw in the previous part, we could have use the command:
+
+`bin/builder test Launchpad/Engine/MyNamespace/MyClass::my_method --type unit --scenarios myFirstScenario,mySecondScenario`
+
+To know more about the CLI, you can check [your documentation page about it](../cli/index.md).
+
