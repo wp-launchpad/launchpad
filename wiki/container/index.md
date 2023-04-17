@@ -26,6 +26,11 @@ Theses service providers are structured in 3 parts:
 - A part to load and link classes together.
 
 ### Wiring strategies
+Currently two strategies are possible to wire classes between them:
+- Auto wiring which let the framework resolve classes by itsself.
+- Manual wiring that require  the developer to tell the framework what goes where.
+
+Both strategies have advantages and drawbacks however it is strongly advised for a beginner to use auto wiring to simplify his development.
 
 ### Subscriber declaration
 To declare which subscriber it will provider to the application each provider can use 3 methods returning ids from the subscribers from that type:
