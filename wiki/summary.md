@@ -15,7 +15,8 @@
 - [Integration test](testing/integration.md)
 
 ## Container
-- [Default behavior](container/index.md)
+- [Architecture](container/index.md)
+- [Auto wiring](container/auto-wiring.md)
 - [Manual wiring](container/manual-wiring.md)
 - [Activation/Desactivation](container/activate-deactivate.md)
 ## Modules
