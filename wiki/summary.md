@@ -18,7 +18,7 @@
 - [Architecture](container/index.md)
 - [Auto wiring](container/auto-wiring.md)
 - [Manual wiring](container/manual-wiring.md)
-- [Activation/Desactivation](container/activate-deactivate.md)
+- [Activation/Deactivation](container/activate-deactivate.md)
 ## Modules
 - [Definition](modules/index.md)
 - [Listing](modules/listing.md)
