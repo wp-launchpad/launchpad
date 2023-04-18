@@ -50,7 +50,7 @@ Finally you will have to register your callback to the event for that there is m
 - The easiest way is to just register the callback: `'hook_name'   => 'method_callback'`.
 - If you need to register the callack with a priority or more than one param, you can then use the array syntax: `'hook_name_3' => [ 'method_callback_3', 10, 2 ],`
 - If you have multiple callbacks then you will have to use the array syntax wrapped into an array: `'hook_name_4' => [
-			    [ 'method_callback_4' ], // Multiple callbacks can be hooked on the same event with a multidimensional array
+			    [ 'method_callback_4' ],
 			    [ 'method_callback_5' ],
 			],`
 At the end you should have this structure for your subscriber:
