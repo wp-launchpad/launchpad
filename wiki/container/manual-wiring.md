@@ -1,5 +1,26 @@
 ## Wiring classes
 
+With the manual strategy you have to indicate the application what is the dependency tree between classes.
+
+For that you will have to implement the `define` method.
+
+To register a class you will have to use the method `register_service`.
+
+This method only takes the name of the class as parameter when the class has no dependencies.
+
+However when the instanciationg is more complex it takes a method as second parameters that pass as parameter the definition of the class.
+
+Inside that function you can use the container to get dependencies and pass them to the class as following:
+```php
+class Provider extends AbstractServiceProvider {
+   public function define() {
+    $this->register_service(MyClass::class, function($defintion) {
+     $definition->addArgument($this->getContainer()->get(MyDependency::class));
+    });
+   }
+}
+```
+
 ## Registering subscribers
 
 With Launchpad default behavior we have 4 subscriber types:
