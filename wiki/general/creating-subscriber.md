@@ -1,19 +1,19 @@
 
 ## Create your subscriber
 
-In Launchpad every subscriber needs to implements the interface ``.
+In Launchpad every subscriber needs to implements the interface `Launchpad\Dependencies\LaunchpadCore\EventManagement\SubscriberInterface`.
 Due to that your subscriber should look like that:
 ```php
 <?php
 namespace Launchpad\Subscriber;
 
-use Launchpad\EventManagement\SubscriberInterface;
+use Launchpad\Dependencies\LaunchpadCore\EventManagement\SubscriberInterface;
 
 /**
  * An event subscriber.
  *
  */
-class Boilerplate_Subscriber implements Subscriber_Interface {
+class Subscriber implements SubscriberInterface {
 	/**
 	 * Return an array of events that this subscriber wants to listen to.
 	 *
@@ -38,7 +38,7 @@ class Boilerplate_Subscriber implements Subscriber_Interface {
 ```
 
 Once you created the base from your subscriber you will then have to callbacks to the subscriber.
-For that 
+For that inside the `get_subscribed_events` method we will have to return an array containing the mapping between callbacks from the subscriber and events.
 
 ## Register your subscriber
 Once we created your subscriber we need to then attach it to our plugin as an actual subscriber because for the moment is a simple class for the framework.
