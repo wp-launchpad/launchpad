@@ -23,8 +23,28 @@ Sometimes you will need to execute more actions than adding a library.
 In this case you will have to create a specific command that will run when the module is required into the project.
 
 ### Creating the command
+The install command is a simple CLI and to create it that would be as easy as for a regular commmand.
 
+For that you can check the [page of the wiki](cli/creating-command.md) about that.
 ### Registering the command 
+Once your command is created and the service provider linked to it too.
+
+You can then register it to the module for that you will have to add two new fields:
+- "command": This will be the name of the command to execute.
+- "provider": This will be the full name of the provider to add to the CLI when installing.
+
+```json
+{
+
+   "meta": {
+      "launchpad": {
+         "command": "install",
+         "provider": "MyProvider",
+      }
+   }
+}
+```
+
 
 ## Clean up the package 
 In most cases you don't need anymore the installation package.
