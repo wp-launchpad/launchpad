@@ -45,5 +45,6 @@ For that you just have to put the parent class name in an array that will pass t
 ```php
 $this->bind(MyInterface::class, MyConcreteClass::class, [Parent::class]);
 ```
+Once this is set the concrete class will only be instanciated when the parent class is the one indicated.
 
 ## Registering subscribers
