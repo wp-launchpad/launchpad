@@ -25,7 +25,7 @@ In this case you will have to create a specific command that will run when the m
 ### Creating the command
 The install command is a simple CLI and to create it that would be as easy as for a regular commmand.
 
-For that you can check the [page of the wiki](cli/creating-command.md) about that.
+For that you can check the [page of the wiki](../cli/creating-command.md) about that.
 ### Registering the command 
 Once your command is created and the service provider linked to it too.
 
