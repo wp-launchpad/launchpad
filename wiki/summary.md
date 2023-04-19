@@ -29,6 +29,6 @@
    - [Logger](modules/listing/logger.md)
    - [Uninstaller](modules/listing/uninstaller.md)
    - [Filesystem](modules/listing/filesystem.md)
-   - [Front-end](modules/listing/berlindb.md)
+   - [Front-end](modules/listing/front-end.md)
    - [Hook extractor](modules/listing/hook-extractor.md)
 - [Creating a module](modules/creating-a-module.md)
