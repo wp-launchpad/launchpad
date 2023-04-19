@@ -16,7 +16,7 @@
 
 ## Container
 - [Architecture](container/index.md)
-- [Parameters](containers/parameters.md)
+- [Parameters](container/parameters.md)
 - [Providers](container/providers.md)
 - [Auto wiring](container/auto-wiring.md)
 - [Manual wiring](container/manual-wiring.md)
