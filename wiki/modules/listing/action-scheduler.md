@@ -7,7 +7,7 @@ This module offers you the power from Action Scheduler encapsulated into an obje
 
 ## Install
 
-To install that library, you just have to run that command: 
+To install that library, you just have to run that command: `composer require action-scheduler-take-off`
 
 ## Structure
 
