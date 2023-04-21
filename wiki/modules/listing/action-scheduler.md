@@ -12,10 +12,17 @@ To install that library, you just have to run that command: `composer require ac
 ## Structure
 
 This module provides you two classes to extends to create an Action Scheduler queue:
-- `Queue`: it represents the actual queue.
+- `AbstractASQueue`: it represents the actual queue.
 - `QueueRunner`: it handles the logic to run the queue.
 
 To extend the `Queue` class then you will the to define the group from the class like following:
 ```php
-
+class MyQueue extends AbstractASQueue {
+   public function __construct(string $prefix){ 
+      parent::__construct('my-group', $prefix);
+   }
+}
 ```
+
+Then it is also possible to define a specific behaviour for your queue and run it aside from other actions from other queues. For that you have to define a QueueRunner for class.
+
