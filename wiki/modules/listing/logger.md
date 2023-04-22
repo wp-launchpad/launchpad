@@ -22,3 +22,5 @@ Each parameter control a configuration:
 - `log_file_name`: Name from the Monolog log file.
 - `log_path`: Path from the Monolog logger.
 - `log_debug_interval`: Interval before changing file.
+
+You can easily create your own logger by implementing the `LaunchpadLogger\HandlerInterface` that follows the PSR-3 standard then add it to the `log_handlers` confguration.
