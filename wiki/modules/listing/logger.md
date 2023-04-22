@@ -15,10 +15,10 @@ On install the module creates new parameters into `configs/parameters.php`:
  'log_path' => '',
  'log_debug_interval' => 0,
 ```
-
+Each parameter control a configuration: 
 - `log_enabled`: Enable or disable log.
 - `log_handlers`: Handlers used in the logger.
-- `logger_name`: 
-- `log_file_name`: 
-- `log_path`: 
-- `log_debug_interval`: 
+- `logger_name`: Name from the Monolog logger.
+- `log_file_name`: Name from the Monolog log file.
+- `log_path`: Path from the Monolog logger.
+- `log_debug_interval`: Interval before changing file.
