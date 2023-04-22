@@ -15,4 +15,4 @@ To load a service provider it needs to match of theses conditions:
 
 ## Load an uninstaller
 
-To craeate an `Uninstaller` it needs to implement the interface `LaunchpadUninstaller\Uninstall\UninstallerInterface` and be registered in the method `get_uninstallers` from a service provider.
+To create an `Uninstaller` it needs to implement the interface `LaunchpadUninstaller\Uninstall\UninstallerInterface` and be registered in the method `get_uninstallers` from a service provider.
