@@ -6,3 +6,13 @@ To install that library run the following command: `composer require wp-launchpa
 
 ## Structure
 
+This module creates a `uninstall.php` file at the root of your plugin that will load selected service providers on uninstall and run action from `Uninstaller`.
+
+### Load a service provider
+To load a service provider it needs to match of theses conditions:
+- Implementing the interface `LaunchpadUninstaller\Uninstall\UninstallServiceProviderInterface`.
+- Implementing the interface `LaunchpadUninstaller\Uninstall\HasUninstallerServiceProviderInterface` and return at least one `Uninstaller`.
+
+## Load an uninstaller
+
+To craeate an `Uninstaller` it needs to implement the interface `LaunchpadUninstaller\Uninstall\UninstallerInterface` and be registered in the method `get_uninstallers` from a service provider.
