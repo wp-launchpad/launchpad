@@ -8,3 +8,4 @@ to install this library execute the following command: `composer require wp-laun
 This library offer you an implementation of each filesystem option present on Wordpress.
 
 ## Tests
+To test with this module you can use the container to swap the item with the mock class.
