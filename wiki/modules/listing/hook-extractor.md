@@ -19,7 +19,11 @@ On the command the following options are available:
 | configurations |     c        | file.yml          | hook-extractor.yml   | Configuration file                                                      |
 
 ### Input file
+
 This file is here to provide some informations to help the command return an exhaustive list from your hooks.
 For that it provides multiple fields:
 - 
+
 ### Configuration file
+This file is here to configure in which folder it needs to search for filters and actions.
+
