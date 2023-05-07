@@ -22,7 +22,7 @@ On the command the following options are available:
 
 This file is here to provide some informations to help the command return an exhaustive list from your hooks.
 For that it provides multiple fields:
-- 
+- `repository`: URL from the repository 
 
 ### Configuration file
 This file is here to configure in which folder it needs to search for filters and actions.
