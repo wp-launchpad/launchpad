@@ -1,5 +1,5 @@
 <?php
-namespace RocketLauncher\Tests\Integration;
+namespace Launchpad\Tests\Integration;
 
 define( 'LAUNCHPAD_PLUGIN_ROOT', dirname( dirname( __DIR__ ) ) . DIRECTORY_SEPARATOR );
 define( 'LAUNCHPAD_TESTS_FIXTURES_DIR', dirname( __DIR__ ) . '/Fixtures' );

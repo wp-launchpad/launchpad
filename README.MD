@@ -1,13 +1,12 @@
-## Rocket launcher
-Rocket launcher is a boilerplate for WordPress plugin that allows you to create a modern PHP plugin in no 
-time.
+## Launchpad
+Launchpad is a framework for WordPress plugin that allows you to create a modern PHP plugin in no time.
 
 ### Install
-You create a new project with the following command `composer create-project crochetfeve0251/rocket-launcher my-plugin`.
+You create a new project with the following command `composer create-project wp-launchpad/launchpad my-plugin`.
 Then you will have to run the script `bin/generator` to generate the project.
 
 ### Class generator
-This boilerplate comes with a class generator that will make you save ton of time while developing new 
+This framework comes with a class generator that will make you save ton of time while developing new 
 classes to use it you can run the following command `bin/generator initialize`.
 
 With this commandline the following command are available:
@@ -15,11 +14,10 @@ With this commandline the following command are available:
 - `subscriber`: Generate a subscriber file and attach it to the project.
 - `provider`: Generate a service provider file and attach it to the project.
 - `test`: Generate a test file.
-- `table`: Generate files for adding a new table to the project.
 - `fixture`: Generate a fixture file and attach it to the project.
 
 ### Testing
-This boilerplate offers an architecture that makes testing your code simple and time efficient.
+This framework offers an architecture that makes testing your code simple and time efficient.
 
 For every test you will be able to fast generate new test cases with the fixtures.
 You will be also able to mock unit tests quickly using Mockery and Brain Monkey.

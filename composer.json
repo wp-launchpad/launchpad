@@ -1,8 +1,10 @@
 {
-    "name": "crochetfeve0251/rocket-launcher",
-    "description": "Template for a psr4 compatible plugin",
+    "name": "wp-launchpad/launchpad",
+    "description": "Framework to create a modern PHP plugin in no time",
     "keywords": [
-        "wordpress"
+        "wordpress",
+        "framework",
+        "plugin"
     ],
     "license": "GPL-2.0-or-later",
     "authors": [
@@ -37,11 +39,11 @@
         "php": "^7 || ^8",
         "brain/monkey": "^2.0",
         "coenjacobs/mozart": "^0.7",
-        "crochetfeve0251/rocket-launcher-autoresolver": "^0.0.4",
-        "crochetfeve0251/rocket-launcher-builder": "^1.0.0",
-        "crochetfeve0251/rocket-launcher-builder-installer": "^0.0.1",
-        "crochetfeve0251/rocket-launcher-core": "^0.0.6",
-        "crochetfeve0251/rocket-launcher-take-off": "^1.0.0",
+        "wp-launchpad/autoresolver": "^0.0.5",
+        "wp-launchpad/cli": "^1.0.2",
+        "wp-launchpad/cli-installer": "^0.0.3",
+        "wp-launchpad/core": "^0.0.8",
+        "wp-launchpad/take-off": "^1.0.1",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "league/container": "^3.3",
         "mnsami/composer-custom-directory-installer": "^2.0",
@@ -59,12 +61,12 @@
             "inc/classes"
         ],
         "psr-4": {
-            "RocketLauncher\\": "inc/"
+            "Launchpad\\": "inc/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RocketLauncher\\Tests\\": "tests/"
+            "Launchpad\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -74,14 +76,14 @@
             ]
         },
         "mozart": {
-            "dep_namespace": "RocketLauncher\\Dependencies\\",
+            "dep_namespace": "Launchpad\\Dependencies\\",
             "dep_directory": "/inc/Dependencies/",
             "classmap_directory": "/inc/classes/dependencies/",
-            "classmap_prefix": "RocketLauncher",
+            "classmap_prefix": "Launchpad",
             "packages": [
                 "league/container",
-                "crochetfeve0251/rocket-launcher-core",
-                "crochetfeve0251/rocket-launcher-autoresolver"
+                "wp-launchpad/core",
+                "wp-launchpad/autoresolver"
             ]
         }
     },

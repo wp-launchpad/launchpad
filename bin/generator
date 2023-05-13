@@ -1,11 +1,11 @@
 #!/usr/bin/php
 <?php
 
-use RocketLauncherBuilder\AppBuilder;
+use LaunchpadCLI\AppBuilder;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
 AppBuilder::init(__DIR__ . '/../', [
-        \RocketLauncherTakeOff\ServiceProvider::class,
-        \RocketLauncherBuilderInstaller\ServiceProvider::class,
+        \LaunchpadTakeOff\ServiceProvider::class,
+        \LaunchpadCLIInstaller\ServiceProvider::class,
 ]);
