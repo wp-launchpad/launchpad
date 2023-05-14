@@ -9,3 +9,5 @@ This library offer you an implementation of each filesystem option present on Wo
 
 ## Tests
 To test with this module you can use the container to swap the item with the mock class.
+For that you will have to wire manually the class and share it.
+By doing so every instances returned by the container will be the same.
