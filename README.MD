@@ -15,6 +15,7 @@ With this commandline the following command are available:
 - `provider`: Generate a service provider file and attach it to the project.
 - `test`: Generate a test file.
 - `fixture`: Generate a fixture file and attach it to the project.
+- `build`: Generate an optimized artifact for the plugin.
 
 ### Testing
 This framework offers an architecture that makes testing your code simple and time efficient.
