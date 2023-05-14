@@ -44,6 +44,7 @@
         "wp-launchpad/cli-installer": "^0.0.3",
         "wp-launchpad/core": "^0.0.8",
         "wp-launchpad/take-off": "^1.0.1",
+        "wp-launchpad/build": "^0.0.4",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "league/container": "^3.3",
         "mnsami/composer-custom-directory-installer": "^2.0",

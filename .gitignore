@@ -2,3 +2,4 @@
 vendor
 inc/Dependencies/*
 inc/classes/*
+build
