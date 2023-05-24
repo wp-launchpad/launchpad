@@ -11,6 +11,6 @@ tests_add_filter(
     'muplugins_loaded',
     function() {
         // Load the plugin.
-        require LAUNCHPAD_PLUGIN_ROOT . '/rocket-launcher.php';
+        require LAUNCHPAD_PLUGIN_ROOT . '/launchpad.php';
     }
 );
