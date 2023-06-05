@@ -54,3 +54,6 @@ On the test command the following options are available:
 
 ### Fixture
 To create a service provider run the following command: `fixture MyClass`.
+
+## Build
+To build an optimized artifact from project run the following command: `build`.
