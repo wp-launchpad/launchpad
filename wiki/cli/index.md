@@ -57,3 +57,7 @@ To create a service provider run the following command: `fixture MyClass`.
 
 ## Build
 To build an optimized artifact from project run the following command: `build`.
+
+---------------------------------------------------------------------
+| Option | Short option | Value | Short value | Default| Description |
+|:------:|:------------:|:------:|:----------:|:-----:|:-----------:|
