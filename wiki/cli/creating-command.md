@@ -42,3 +42,6 @@ $app->add(new Command());
 ```
 
 Finally the last step is to register the serivce provider into the CLI.
+
+## Event listener
+An event listener is available inside the CLI.
