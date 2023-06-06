@@ -61,3 +61,4 @@ To build an optimized artifact from project run the following command: `build`.
 ---------------------------------------------------------------------
 | Option | Short option | Value | Short value | Default| Description |
 |:------:|:------------:|:------:|:----------:|:-----:|:-----------:|
+| version | v | 1.0.0 | 1.0.0 | none | Fix the value from the version of teh artifact|
