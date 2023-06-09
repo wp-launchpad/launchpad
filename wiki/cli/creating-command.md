@@ -45,3 +45,11 @@ Finally the last step is to register the serivce provider into the CLI.
 
 ## Event listener
 An event listener is available inside the CLI.
+
+To use it you need to implement `LaunchpadCLI\ServiceProviders\EventDispatcherAwareInterface` interface then you will be able to share the event manager with each classe you need to use it.
+
+We propose a trait `LaunchpadCLI\ServiceProviders\EventDispatcherAwareTrait` to use to prevent you from implementing the logic from the interface.
+
+### Dispatching an event
+
+### Registering a subscriber
