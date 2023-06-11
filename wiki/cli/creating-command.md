@@ -53,3 +53,12 @@ We propose a trait `LaunchpadCLI\ServiceProviders\EventDispatcherAwareTrait` to 
 ### Dispatching an event
 
 ### Registering a subscriber
+To register a subscriber you need to create a service provider that implements `LaunchpadCLI\ServiceProviders\EventDispatcherAwareInterface` and implement `set_event_dispatcher` method.
+
+Then you will have to implement a [League listener subscriber](https://event.thephpleague.com/3.0/extra-utilities/listener-subscriber/) and regsiter it as following into your service provider:
+
+```php
+public function set_event_dispatcher(EventDispatcher $event_dispatcher) {
+  $this->event_dispatcher->subscribeListenersFrom(new MyListenerSubscriber());
+}
+```
