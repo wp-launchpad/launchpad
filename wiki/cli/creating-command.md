@@ -51,7 +51,25 @@ To use it you need to implement `LaunchpadCLI\ServiceProviders\EventDispatcherAw
 We propose a trait `LaunchpadCLI\ServiceProviders\EventDispatcherAwareTrait` to use to prevent you from implementing the logic from the interface.
 
 ### Dispatching an event
+To dispatch an event you need first to use the trait `LaunchpadCLI\Events\UseHookTrait`.
 
+If you want to run a filter you can run the method `apply_filter`:
+
+```php
+$results = $this->apply_filter('my_filter', [
+'test' => []
+]);
+```
+
+If you want to run a action you can run the method `do_action`:
+
+```php
+$this->do_action('my_action', [
+'test' => []
+]);
+```
+
+Then depending on your 
 ### Registering a subscriber
 To register a subscriber you need to create a service provider that implements `LaunchpadCLI\ServiceProviders\EventDispatcherAwareInterface` and implement `set_event_dispatcher` method.
 
