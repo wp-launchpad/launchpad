@@ -8,5 +8,7 @@ You will have then to enter the folder from the project and initialize it.
 ## Initalize the project
 To initialize the project you will have to launch the following command:
 `bin/generator initialize`
+
 This command comes from the [`wp-launchpad/laucnhpad-take-off`](https://packagist.org/packages/wp-launchpad/launchpad-take-off) library and you can check the library to know each option avalable.
+
 However if you don't know the command well you can execute it without parameters and it will ask you required ones.
