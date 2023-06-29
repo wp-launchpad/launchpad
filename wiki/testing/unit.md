@@ -75,7 +75,7 @@ Once we got the mock object we can then set expectation this way:
 $mock->expects()->method(12)->andReturn(45);
 ```
 
-For more information on how Mockery work you can check [their documentation](https://github.com/mockery/mockery)
+For more information on how Mockery work you can check [their documentation](https://github.com/mockery/mockery).
 
 #### Mock a function 
 
