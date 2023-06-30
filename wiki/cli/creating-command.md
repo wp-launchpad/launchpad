@@ -57,7 +57,7 @@ If you want to run a filter you can run the method `apply_filter`:
 
 ```php
 $results = $this->apply_filter('my_filter', [
-'test' => []
+   'test' => []
 ]);
 ```
 
@@ -65,7 +65,7 @@ If you want to run a action you can run the method `do_action`:
 
 ```php
 $this->do_action('my_action', [
-'test' => []
+   'test' => []
 ]);
 ```
 
