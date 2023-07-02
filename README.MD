@@ -23,3 +23,6 @@ This framework offers an architecture that makes testing your code simple and ti
 For every test you will be able to fast generate new test cases with the fixtures.
 You will be also able to mock unit tests quickly using Mockery and Brain Monkey.
 Finally, the subscriber architecture will make it easier for you to create integration tests for your code.
+
+### Modules
+Multiple modules are available to allow faster development on specific tasks.
