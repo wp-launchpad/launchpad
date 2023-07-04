@@ -8,7 +8,7 @@ On install the module creates new parameters into `configs/parameters.php`:
 ```php
  'log_enabled' => false,
  'log_handlers' => [
-  \Launchpad\Dependencies\Monolog\MonologHandler::class,  
+    \Launchpad\Dependencies\Monolog\MonologHandler::class,  
  ],
  'logger_name' => 'launchpad',
  'log_file_name' => 'launchpad.log',
