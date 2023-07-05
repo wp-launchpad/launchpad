@@ -25,4 +25,14 @@ You will be also able to mock unit tests quickly using Mockery and Brain Monkey.
 Finally, the subscriber architecture will make it easier for you to create integration tests for your code.
 
 ### Modules
-Multiple modules are available to allow faster development on specific tasks.
+Multiple modules are available to allow faster development on specific tasks:
+
+| Module   | Description |
+|:-------:|-------------|
+| [Action scheduler](https://github.com/CrochetFeve0251/rocket-launcher-action-scheduler-take-off) | Handle asynchronous code or code to execute later|
+|[BerlinDB](https://github.com/CrochetFeve0251/rocket-launcher-database)| A simple Database library |
+|[Logger](https://github.com/CrochetFeve0251/rocket-launcher-logger-take-off) |A PSR-3 compatible logger|
+|[Uninstaller](https://github.com/CrochetFeve0251/rocket-launcher-uninstaller-take-off) |Set actions to be done on uninstall|
+|[Filesystem](https://github.com/CrochetFeve0251/rocket-launcher-filesystem-take-off)|Interact with the filesystem|
+|[Front-end](https://github.com/CrochetFeve0251/rocket-launcher-front-take-off)|Create a front-end with Bud.js for your plug-in|
+|[Hook extractor](https://github.com/CrochetFeve0251/rocket-launcher-hooks-extractor)|Extract hooks from your plugin into a yaml file|
