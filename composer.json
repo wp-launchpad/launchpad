@@ -38,13 +38,8 @@
     "require-dev": {
         "php": "^7 || ^8",
         "brain/monkey": "^2.0",
+        "brianhenryie/strauss": "^0.14.0",
         "coenjacobs/mozart": "^0.7",
-        "wp-launchpad/autoresolver": "^0.0.5",
-        "wp-launchpad/cli": "^1.0.2",
-        "wp-launchpad/cli-installer": "^0.0.3",
-        "wp-launchpad/core": "^0.0.8",
-        "wp-launchpad/take-off": "^1.0.1",
-        "wp-launchpad/build": "^0.0.8",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "league/container": "^3.3",
         "mnsami/composer-custom-directory-installer": "^2.0",
@@ -55,6 +50,12 @@
         "roave/security-advisories": "dev-master",
         "szepeviktor/phpstan-wordpress": "^0.7.0",
         "wp-coding-standards/wpcs": "^2",
+        "wp-launchpad/autoresolver": "^0.0.5",
+        "wp-launchpad/build": "^0.0.8",
+        "wp-launchpad/cli": "^1.0.2",
+        "wp-launchpad/cli-installer": "^0.0.3",
+        "wp-launchpad/core": "^0.0.8",
+        "wp-launchpad/take-off": "^1.0.1",
         "wp-media/phpunit": "^3.0"
     },
     "autoload": {
@@ -76,6 +77,9 @@
                 "type:wordpress-plugin"
             ]
         },
+        "strauss": {
+
+        },
         "mozart": {
             "dep_namespace": "Launchpad\\Dependencies\\",
             "dep_directory": "/inc/Dependencies/",
@@ -89,6 +93,9 @@
         }
     },
     "scripts": {
+        "strauss": [
+            "vendor/bin/strauss"
+        ],
         "test-unit": "\"vendor/bin/phpunit\" --testsuite unit --colors=always --configuration tests/Unit/phpunit.xml.dist",
         "test-integration": "\"vendor/bin/phpunit\" --testsuite integration --colors=always --configuration tests/Integration/phpunit.xml.dist --exclude-group AdminOnly",
         "test-integration-adminonly": "\"vendor/bin/phpunit\" --testsuite integration --colors=always --configuration tests/Integration/phpunit.xml.dist --group AdminOnly",
@@ -105,13 +112,13 @@
         "post-install-cmd": [
             "\"bin/generator\" auto-install",
             "composer update --no-interaction --no-scripts",
-            "\"vendor/bin/mozart\" compose",
+            "@strauss",
             "composer dump-autoload"
         ],
         "post-update-cmd": [
             "\"bin/generator\" auto-install",
             "composer update --no-interaction --no-scripts",
-            "\"vendor/bin/mozart\" compose",
+            "@strauss",
             "composer dump-autoload"
         ],
         "code-coverage": "\"vendor/bin/phpunit\" --testsuite unit --colors=always --configuration tests/Unit/phpunit.xml.dist --coverage-clover=tests/report/coverage.clover"
