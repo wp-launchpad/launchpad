@@ -4,7 +4,12 @@
     "wp-env:stop": "wp-env stop",
     "wp-env:destroy": "wp-env destroy",
     "composer": "wp-env run cli --env-cwd=wp-content/plugins/launchpad composer",
-    "integration": "wp-env run cli --env-cwd=wp-content/plugins/launchpad composer run test-integration"
+    "phpcs": "wp-env run cli --env-cwd=wp-content/plugins/launchpad composer run phpcs",
+    "phpcs:fix": "wp-env run cli --env-cwd=wp-content/plugins/launchpad composer run phpcs:fix",
+    "run-tests": "wp-env run cli --env-cwd=wp-content/plugins/launchpad composer run run-tests",
+    "unit": "wp-env run cli --env-cwd=wp-content/plugins/launchpad composer run test-unit",
+    "integration": "wp-env run cli --env-cwd=wp-content/plugins/launchpad composer run test-integration",
+    "adminonly": "wp-env run cli --env-cwd=wp-content/plugins/launchpad composer run test-integration-adminonly"
   },
   "devDependencies": {
     "@wordpress/env": "^8.3.0"
