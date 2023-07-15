@@ -3,3 +3,5 @@ vendor
 inc/Dependencies/*
 inc/classes/*
 build
+package-lock.json
+node_modules
