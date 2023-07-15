@@ -39,7 +39,6 @@
         "php": "^7 || ^8",
         "brain/monkey": "^2.0",
         "brianhenryie/strauss": "^0.14.0",
-        "coenjacobs/mozart": "^0.7",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "league/container": "^3.3",
         "mnsami/composer-custom-directory-installer": "^2.0",
@@ -59,9 +58,6 @@
         "wp-media/phpunit": "^3.0"
     },
     "autoload": {
-        "classmap": [
-            "inc/classes"
-        ],
         "psr-4": {
             "Launchpad\\": "inc/"
         }
@@ -78,13 +74,10 @@
             ]
         },
         "strauss": {
-
-        },
-        "mozart": {
-            "dep_namespace": "Launchpad\\Dependencies\\",
-            "dep_directory": "/inc/Dependencies/",
-            "classmap_directory": "/inc/classes/dependencies/",
+            "target_directory": "vendor-prefixed",
+            "namespace_prefix": "Launchpad\\Dependencies\\",
             "classmap_prefix": "Launchpad",
+            "constant_prefix": "Launchpad",
             "packages": [
                 "league/container",
                 "wp-launchpad/core",

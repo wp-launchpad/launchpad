@@ -1,5 +1,6 @@
 .idea
 vendor
+vendor-prefixed
 inc/Dependencies/*
 inc/classes/*
 build
