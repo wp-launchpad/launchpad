@@ -53,7 +53,7 @@
         "wp-launchpad/build": "^0.0.8",
         "wp-launchpad/cli": "^1.0.2",
         "wp-launchpad/cli-installer": "^0.0.3",
-        "wp-launchpad/core": "^0.0.8",
+        "wp-launchpad/core": "^0.1",
         "wp-launchpad/take-off": "^1.0.1",
         "wp-media/phpunit": "^3.0"
     },
