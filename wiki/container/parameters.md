@@ -15,7 +15,7 @@ The key of the parameter will be its name and the value its value.
 ```php
 return [
    'key' => 100,
-   'key2 => [
+   'key2' => [
      'string'
    ],
 ];
