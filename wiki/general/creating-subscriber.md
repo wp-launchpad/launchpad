@@ -25,8 +25,7 @@ class Subscriber implements SubscriberInterface {
 	 * @return array
 	 */
 	public static function get_subscribed_events() {
-		return [
-		];
+		return [];
 	}
 }
 ```
