@@ -18,6 +18,6 @@ use function Launchpad\Dependencies\LaunchpadCore\boot;
 defined( 'ABSPATH' ) || exit;
 
 
-require __DIR__ . '/inc/Dependencies/LaunchpadCore/boot.php';
+require __DIR__ . '/vendor-prefixed/wp-launchpad/core/inc/boot.php';
 
 boot(__FILE__);
